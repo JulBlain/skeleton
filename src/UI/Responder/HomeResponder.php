@@ -9,8 +9,9 @@
 namespace App\UI\Responder;
 
 use App\UI\Responder\Interfaces\HomeResponderInterface;
-use http\Env\Response;
+
 use Twig\Environment;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeResponder implements HomeResponderInterface
 {

@@ -13,6 +13,7 @@ use App\Controller\Interfaces\DefaultControllerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
+
 class DefaultController implements DefaultControllerInterface
 {
     public function __invoke(Environment $environment)
