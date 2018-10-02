@@ -9,7 +9,8 @@
 namespace App\UI\Responder;
 
 use App\UI\Responder\Interfaces\HomeResponderInterface;
-
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Twig\Environment;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -23,11 +24,15 @@ class HomeResponder implements HomeResponderInterface
     }
 
     //dans invoke on injecte que la requete, a la rigueur la rep mais jamais autre chose
-    public function __invoke()
+    public function __invoke($redirect =false, FormInterface $addArticleType = null)
     {
-        // TODO: Implement __invoke() method.
-        return new Response(
-            $this->twig->render('index.html.twig')
-        );
+        $redirect
+            ? $response = new RedirectResponse('/')
+            : $response = new Response(
+                $this->twig->render('index.html.twig',[
+            'form' => $addArticleType->createView()
+        ])
+    );
+        return $response;
     }
 }
