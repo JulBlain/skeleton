@@ -12,17 +12,24 @@ namespace App\Domain\Model;
 class User
 {
     private $username;
-    private $mail;
+    private $email;
     private $roles;
+    private $creationDate;
+    private $password;
 
     public  function __construct(
         string $username,
-        string $mail
+        string $mail,
+        string $password,
+        callable $passwordEncoder
     )
     {
         $this->username = $username;
-        $this->mail = $mail;
+        $this->email = $mail;
+        $this->password = $passwordEncoder($password, null);
         $this->roles[] = 'ROLE_USER';
+        $this->creationDate =time();
+
     }
 
 }

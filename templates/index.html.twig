@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Hello trou de bal</h1>
+    {{ form_start(form) }}
+    {{ form_row(form) }}
+    <button type="submit">Envoyer</button>
+    {{ form_end(form) }}
 {% endblock body %}
