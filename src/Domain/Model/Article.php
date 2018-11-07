@@ -8,7 +8,6 @@
 
 namespace App\Domain\Model;
 
-
 class Article
 {
     /**
@@ -23,6 +22,10 @@ class Article
     public function __construct(string $content)
     {
         $this->content = $content;
+    }
+
+    public function getArticle():? string {
+        return $this->content;
     }
 
 
